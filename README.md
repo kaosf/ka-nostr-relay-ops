@@ -29,3 +29,9 @@ ee9a8584f9c0289b49add8836fe4100dd292f02fc53cec86a296cfb52fded0d5  config.toml.or
 
 - https://github.com/scsibug/nostr-rs-relay
 - https://github.com/SteveLTN/https-portal
+
+# License
+
+[![Public Domain](http://i.creativecommons.org/p/mark/1.0/88x31.png)](http://creativecommons.org/publicdomain/mark/1.0/ "license")
+
+This work is free of known copyright restrictions.
