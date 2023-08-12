@@ -13,7 +13,6 @@ directory "/home/u" do
   group "u"
   mode "755"
 end
-execute "sudo chown -R u: /home/u"
 execute "sudo gpasswd -a u docker" do
   not_if "groups u | grep -q docker"
 end
