@@ -1,0 +1,16 @@
+source "https://rubygems.org"
+
+ruby "3.2.2"
+
+gem "itamae", "1.14.0"
+
+# To fix the following error:
+#
+#     NotImplementedError: OpenSSH keys only supported if ED25519 is available
+#     net-ssh requires the following gems for ed25519 support:
+#      * ed25519 (>= 1.2, < 2.0)
+#      * bcrypt_pbkdf (>= 1.0, < 2.0)
+#     See https://github.com/net-ssh/net-ssh/issues/565 for more information
+#     Gem::LoadError : "ed25519 is not part of the bundle. Add it to your Gemfile."
+gem "ed25519", "< 2.0"
+gem "bcrypt_pbkdf", "< 2.0"

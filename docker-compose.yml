@@ -1,0 +1,26 @@
+services:
+  https-portal:
+    image: steveltn/https-portal:1
+    depends_on:
+      - nostr-rs-relay
+    restart: always
+    environment:
+      TZ: Asia/Tokyo
+      DOMAINS: "nostr.kaosfield.net -> http://nostr-rs-relay:8080"
+      STAGE: production
+      ACCESS_LOG: /var/log/nginx/access.log
+      CLIENT_MAX_BODY_SIZE: 128M
+      WEBSOCKET: 'true'
+    volumes:
+      - /var/https-portal-certs:/var/lib/https-portal
+      - /var/log/https-portal/nginx:/var/log/nginx
+    ports:
+      - "80:80"
+      - "443:443"
+  nostr-rs-relay:
+    image: scsibug/nostr-rs-relay:0.8.9
+    restart: always
+    volumes:
+      - ./data:/usr/src/app/db:Z
+      - ./config.toml:/usr/src/app/config.toml:ro,Z
+    user: "1001:1001" # TODO: Fix hard coded
