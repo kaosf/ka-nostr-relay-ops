@@ -13,6 +13,21 @@ mkdir data
 docker compose up -d
 ```
 
+## How to change the user ID
+
+... or, if `$UID` is empty:
+
+```sh
+# Check your user ID.
+id
+# More direct method to check it.
+id -u $(whoami)
+
+cp .env.example .env
+vi .env
+docker compose up -d
+```
+
 # About `config.toml`
 
 Customize only `relay_url`.

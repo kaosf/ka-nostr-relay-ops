@@ -23,4 +23,4 @@ services:
     volumes:
       - ./data:/usr/src/app/db:Z
       - ./config.toml:/usr/src/app/config.toml:ro,Z
-    user: "1001:1001" # TODO: Fix hard coded
+    user: ${UID:-0}
